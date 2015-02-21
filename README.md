@@ -55,7 +55,7 @@ typedef Monad<M:Monad<M,_>,A> = {
   > FlatMappable<M,A>,
 }
 
-typedef MonadPlus<M:MonadPlus<M,_>,A> = {
+typedef MonadZero<M:MonadZero<M,_>,A> = {
   > Filterable<M,A>,
   > Monad<M,A>,
 }
@@ -100,7 +100,7 @@ class Main {
         trace(b);
     }
 
-    static function withMonadPlus <M:MonadPlus<M,_>>(m:M<Int>) 
+    static function withMonadZero <M:MonadZero<M,_>>(m:M<Int>) 
     {
 	return m.flatMap(function (x) return m.lift(x+1))
 	  .filter(function (x) return x < 3)
