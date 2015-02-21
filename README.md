@@ -95,7 +95,7 @@ class Main {
     static function main () {
         var a = new MyArray([1,2,3]);
         
-        var b = withMonadPlus(a);
+        var b = withMonadZero(a);
         
         trace(b);
     }
