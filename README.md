@@ -9,16 +9,24 @@ typedef Mappable<M:Mappable<M>> = {
 	public function map <A,B> (f:A->B):M<B>;
 }
 
-class Test {
+class Main {
 	
-	public static function main () {
-		var a = [1];
-		trace(mapTwice(a, function (x) return x + 1));
+	static function main () {
+		var a = [1,2];
+		var l = new List(); l.add(1); l.add(2);
+		
+		var a1 = mapTwice(a, function (x) return x + 1);
+		var l1 = mapTwice(l, function (x) return x + 1);
+		
+		$type(a1); // Array<Int>
+		$type(l1); // List<Int>
+		
+		trace(a1);
+		trace(l1);
 	}
 	
 	static function mapTwice <M:Mappable<M>, A>(x:M<A>, f:A->A) {
 		return x.map(f).map(f);
 	}
-
 }
 ```
