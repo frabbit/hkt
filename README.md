@@ -5,8 +5,8 @@ https://github.com/Simn/haxe/tree/higher_kinded_types_reloaded
 
 # Example
 ```haxe
-interface Mappable<M:Mappable<M,_>,A> {
-	public function map <B> (f:A->B):M<B>;
+typedef Mappable<M:Mappable<M,_>,A> = {
+    public function map <B> (f:A->B):M<B>;
 }
 
 class Main {
